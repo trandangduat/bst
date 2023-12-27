@@ -96,11 +96,71 @@ function Tree(arr) {
     return null;
   }
 
+  function levelOrder() {
+    let queue = new Array;
+    let order = new Array;
+    let top = 0;
+    queue.push(root);
+    while (top < queue.length) {
+      let u = queue[top];
+      queue[top] = null;
+      top++;
+      order.push(u.data);
+      if (u.left !== null) {
+        queue.push(u.left);
+      } 
+      if (u.right !== null) {
+        queue.push(u.right);
+      }
+    }
+    return order;
+  }
+
+  function inOrder (u = root) {
+    let order = new Array;
+    if (u.left !== null) {
+      order = order.concat(inOrder(u.left));
+    }
+    order.push(u.data);
+    if (u.right !== null) {
+      order = order.concat(inOrder(u.right));
+    }
+    return order;
+  }
+
+  function preOrder (u = root) {
+    let order = new Array;
+    order.push(u.data);
+    if (u.left !== null) {
+      order = order.concat(preOrder(u.left));
+    }
+    if (u.right !== null) {
+      order = order.concat(preOrder(u.right));
+    }
+    return order;
+  }
+  
+  function postOrder (u = root) {
+    let order = new Array;
+    if (u.left !== null) {
+      order = order.concat(postOrder(u.left));
+    }
+    if (u.right !== null) {
+      order = order.concat(postOrder(u.right));
+    }
+    order.push(u.data);
+    return order;
+  }
+  
   return {
     root,
     insert,
     remove,
     find,
+    levelOrder,
+    inOrder,
+    preOrder,
+    postOrder,
   }
 }
 

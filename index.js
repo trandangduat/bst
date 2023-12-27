@@ -25,4 +25,8 @@ T.remove(67);
 T.remove(10);
 T.remove(324);
 T.remove(9);
+console.log("lv_order", T.levelOrder());
+console.log("in_order", T.inOrder());
+console.log("pre_order", T.preOrder());
+console.log("post_order", T.postOrder());
 prettyPrint(T.root);
