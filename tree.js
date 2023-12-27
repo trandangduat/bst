@@ -1,4 +1,4 @@
-import {Node} from "./node.js"
+import {Node} from "./treenode.js"
 
 function Tree (arr) {
     // Sort the array and remove duplicates
@@ -39,7 +39,6 @@ function Tree (arr) {
             par.left = Node(value);
         }
     }
-
 
     function successor (u) { // Find the smallest node that larger than u
         let cur = u;
