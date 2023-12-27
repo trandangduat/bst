@@ -151,6 +151,12 @@ function Tree(arr) {
     order.push(u.data);
     return order;
   }
+
+  function rebalance() {
+    arr = inOrder();
+    console.log(arr);
+    this.root = buildTree(0, 0, arr.length - 1);
+  }
   
   return {
     root,
@@ -161,6 +167,7 @@ function Tree(arr) {
     inOrder,
     preOrder,
     postOrder,
+    rebalance,
   }
 }
 
